@@ -1,0 +1,259 @@
+/* ==========================================================================
+   LAYOUT PRINCIPAL — estrutura geral da página com CSS Grid
+   + layouts específicos por tipo de conteúdo
+   ========================================================================== */
+
+/* Estrutura geral: cabeçalho / conteúdo / rodapé */
+.page {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  min-height: 100vh;
+}
+
+.page > .site-header { grid-area: header; }
+.page > main         { grid-area: main; }
+.page > .site-footer { grid-area: footer; }
+
+/* Seções */
+.section {
+  padding-block: var(--space-6);
+}
+
+@media (min-width: 1024px) {
+  .section { padding-block: var(--space-8); }
+}
+
+.section--surface { background: var(--color-surface); }
+.section--dark {
+  background: var(--color-neutral-900);
+  color: var(--color-white);
+}
+.section--dark .lead,
+.section--dark .text-muted { color: var(--color-neutral-300); }
+
+.section__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-bottom: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .section__header--split {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+}
+
+/* ---------- HERO (página inicial) ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-6) var(--space-4);
+}
+
+.hero__inner {
+  display: grid;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .hero__inner {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-6);
+  }
+  .hero { padding-block: var(--space-8) var(--space-6); }
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.hero__title span { color: var(--color-primary-500); }
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.hero__media {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-primary-100);
+}
+
+.hero__media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* Wordmark gigante recortado (elemento de identidade) */
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: clamp(4rem, 17vw, 15rem);
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  color: var(--color-neutral-100);
+  white-space: nowrap;
+  user-select: none;
+  margin-bottom: -0.12em;
+  overflow: hidden;
+}
+
+.section--dark .wordmark { color: #222; }
+
+/* ---------- Estatísticas (flex) ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .stats { grid-template-columns: repeat(4, 1fr); }
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+}
+
+.stat__value {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  color: var(--color-primary-500);
+  line-height: 1;
+}
+
+.stat__label {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+/* ---------- Layout "conteúdo + barra lateral" (página de projetos) ---------- */
+.layout-sidebar {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 1024px) {
+  .layout-sidebar {
+    grid-template-columns: 260px 1fr;
+    align-items: start;
+  }
+  .layout-sidebar__aside {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-3));
+  }
+}
+
+/* ---------- Layout de formulário (página de cadastro) ---------- */
+.layout-form {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 1024px) {
+  .layout-form {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+}
+
+/* ---------- Faixa de chamada (CTA) ---------- */
+.cta-band {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-primary-500);
+  color: var(--color-white);
+}
+
+@media (min-width: 768px) {
+  .cta-band {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-6);
+  }
+}
+
+/* ---------- Passos (como ajudar) ---------- */
+.steps {
+  display: grid;
+  gap: var(--space-3);
+  counter-reset: step;
+}
+
+@media (min-width: 768px) {
+  .steps { grid-template-columns: repeat(3, 1fr); }
+}
+
+.step {
+  counter-increment: step;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid #2b2b2b;
+}
+
+.step::before {
+  content: "0" counter(step);
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-2xl);
+  color: var(--color-primary-500);
+}
+
+/* ---------- Cabeçalho de página interna ---------- */
+.page-hero {
+  padding-block: var(--space-6) var(--space-4);
+  background: var(--color-surface);
+}
+
+.page-hero .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* Breadcrumb */
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+.breadcrumb li + li::before {
+  content: "/";
+  margin-right: var(--space-1);
+  color: var(--color-neutral-500);
+}
+
+.breadcrumb a { text-decoration: none; }
+.breadcrumb a:hover { color: var(--color-primary-700); }

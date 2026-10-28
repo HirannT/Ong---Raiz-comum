@@ -1,0 +1,111 @@
+/* ==========================================================================
+   DESIGN SYSTEM — Instituto Raiz Comum
+   Todas as decisões visuais partem destas variáveis (custom properties).
+   ========================================================================== */
+
+:root {
+  /* ---------- Paleta de cores (12 cores) ---------- */
+
+  /* Primárias — laranja da marca */
+  --color-primary-700: #b84a0e;   /* hover / texto sobre fundo claro */
+  --color-primary-500: #e8631a;   /* cor principal da marca */
+  --color-primary-100: #fdeee4;   /* fundos suaves */
+
+  /* Secundárias — verde "raiz" */
+  --color-secondary-700: #1f5c3f;
+  --color-secondary-500: #2f8a5f;
+  --color-secondary-100: #e3f2ea;
+
+  /* Neutras */
+  --color-neutral-900: #141414;   /* texto principal / fundos escuros */
+  --color-neutral-700: #3d3d3d;   /* texto secundário */
+  --color-neutral-500: #737373;   /* legendas, placeholders */
+  --color-neutral-300: #d4d4d4;   /* bordas */
+  --color-neutral-100: #f4f3f0;   /* fundo de seções */
+  --color-white: #ffffff;
+
+  /* Semânticas (feedback) */
+  --color-success: #2f8a5f;
+  --color-warning: #c98a00;
+  --color-error:   #c7372f;
+  --color-info:    #2563a8;
+
+  /* Atalhos de uso */
+  --color-bg: var(--color-white);
+  --color-surface: var(--color-neutral-100);
+  --color-text: var(--color-neutral-900);
+  --color-text-muted: var(--color-neutral-700);
+  --color-border: var(--color-neutral-300);
+  --color-focus: var(--color-info);
+
+  /* ---------- Tipografia ---------- */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: "Archivo", "Inter", system-ui, sans-serif;
+
+  /* Escala tipográfica (8 tamanhos, razão ~1.25) */
+  --fs-xs:   0.75rem;   /* 12px — badges, legendas */
+  --fs-sm:   0.875rem;  /* 14px — textos auxiliares */
+  --fs-base: 1rem;      /* 16px — corpo */
+  --fs-lg:   1.25rem;   /* 20px — subtítulos / lead */
+  --fs-xl:   1.5rem;    /* 24px — h4 / títulos de card */
+  --fs-2xl:  2rem;      /* 32px — h3 */
+  --fs-3xl:  2.75rem;   /* 44px — h2 */
+  --fs-4xl:  clamp(2.75rem, 6vw + 1rem, 5rem); /* 44–80px — h1 / hero */
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 800;
+
+  --lh-tight: 1.1;
+  --lh-snug: 1.3;
+  --lh-base: 1.6;
+
+  /* ---------- Espaçamento modular (base 8px) ---------- */
+  --space-1: 0.5rem;  /*  8px */
+  --space-2: 1rem;    /* 16px */
+  --space-3: 1.5rem;  /* 24px */
+  --space-4: 2rem;    /* 32px */
+  --space-6: 3rem;    /* 48px */
+  --space-8: 4rem;    /* 64px */
+
+  /* ---------- Bordas, sombras, movimento ---------- */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgb(20 20 20 / 0.06);
+  --shadow-md: 0 6px 20px rgb(20 20 20 / 0.08);
+  --shadow-lg: 0 18px 48px rgb(20 20 20 / 0.16);
+
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+
+  /* ---------- Layout ---------- */
+  --container-max: 1200px;
+  --header-height: 72px;
+  --grid-columns: 12;
+  --grid-gap: var(--space-3);
+
+  /* ---------- Camadas (z-index) ---------- */
+  --z-dropdown: 100;
+  --z-header: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+}
+
+/* Breakpoints usados no projeto (mobile-first, min-width):
+   sm  480px  — celulares grandes
+   md  768px  — tablets em pé
+   lg  1024px — tablets deitados / notebooks pequenos
+   xl  1280px — desktops
+   xxl 1536px — telas largas
+   (CSS não aceita variáveis em media queries; os valores ficam documentados aqui.) */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms;
+    --transition-base: 0ms;
+  }
+}

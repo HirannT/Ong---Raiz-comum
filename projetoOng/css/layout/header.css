@@ -1,0 +1,244 @@
+/* ==========================================================================
+   CABEÇALHO + NAVEGAÇÃO PRINCIPAL
+   Desktop: menu horizontal com submenu dropdown
+   Mobile (< 1024px): menu hambúrguer com painel deslizante
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  /* fundo sólido: backdrop-filter criaria um novo contexto para o menu mobile (position: fixed) */
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  height: var(--header-height);
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-lg);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.logo img { width: 36px; height: 36px; }
+
+/* Botão hambúrguer */
+.nav-toggle {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+}
+
+.nav-toggle__bar {
+  display: block;
+  height: 2px;
+  background: var(--color-neutral-900);
+  border-radius: 2px;
+  transition: transform var(--transition-base), opacity var(--transition-fast);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Painel de navegação (mobile primeiro) */
+.main-nav {
+  position: fixed;
+  inset: var(--header-height) 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-2) var(--space-6);
+  background: var(--color-white);
+  overflow-y: auto;
+  opacity: 0;
+  transform: translateY(-12px);
+  visibility: hidden;
+  transition: opacity var(--transition-base), transform var(--transition-base), visibility var(--transition-base);
+}
+
+.main-nav.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-1);
+  width: 100%;
+  padding: var(--space-2) 0;
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-medium);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover,
+.nav-link[aria-current="page"],
+.nav-link.is-active {
+  color: var(--color-primary-700);
+}
+
+.nav-link__chevron {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-3px);
+  transition: transform var(--transition-base);
+}
+
+.has-submenu.is-open .nav-link__chevron {
+  transform: rotate(-135deg) translateY(-3px);
+}
+
+/* Submenu (mobile: acordeão) */
+.submenu {
+  display: none;
+  list-style: none;
+  padding: var(--space-1) 0 var(--space-1) var(--space-2);
+}
+
+.has-submenu.is-open .submenu { display: block; }
+
+.submenu a {
+  display: block;
+  padding: var(--space-1) 0;
+  text-decoration: none;
+  color: var(--color-text-muted);
+}
+
+.submenu a:hover { color: var(--color-primary-700); }
+
+.main-nav__cta { align-self: stretch; }
+
+/* Trava a rolagem do body com o menu aberto */
+body.nav-open { overflow: hidden; }
+
+/* -------- Desktop ≥ 1024px -------- */
+@media (min-width: 1024px) {
+  .nav-toggle { display: none; }
+
+  .main-nav {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-4);
+    padding: 0;
+    background: none;
+    overflow: visible;
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  .nav-link {
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--fs-sm);
+    border: 0;
+    border-radius: var(--radius-pill);
+  }
+
+  .nav-link:hover { background: var(--color-surface); }
+
+  .nav-link[aria-current="page"],
+  .nav-link.is-active {
+    background: var(--color-neutral-900);
+    color: var(--color-white);
+  }
+
+  .nav-link__chevron { width: 7px; height: 7px; }
+
+  .has-submenu { position: relative; }
+
+  /* Dropdown: abre no hover, no foco por teclado ou por clique */
+  .submenu {
+    display: block;
+    position: absolute;
+    top: calc(100% + var(--space-1));
+    left: 0;
+    min-width: 230px;
+    padding: var(--space-1);
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    z-index: var(--z-dropdown);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
+  }
+
+  /* "ponte" invisível para o mouse não perder o hover */
+  .submenu::before {
+    content: "";
+    position: absolute;
+    inset: calc(var(--space-1) * -1) 0 auto 0;
+    height: var(--space-1);
+  }
+
+  .has-submenu:hover .submenu,
+  .has-submenu:focus-within .submenu,
+  .has-submenu.is-open .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .has-submenu:hover .nav-link__chevron { transform: rotate(-135deg) translateY(-3px); }
+
+  .submenu a {
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-sm);
+    color: var(--color-text);
+  }
+
+  .submenu a:hover,
+  .submenu a:focus-visible {
+    background: var(--color-primary-100);
+    color: var(--color-primary-700);
+  }
+
+  .main-nav__cta { align-self: auto; }
+}

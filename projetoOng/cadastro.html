@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cadastre-se como voluntário ou doador do Instituto Raiz Comum.">
+  <title>Cadastro | Instituto Raiz Comum</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="page">
+    <!-- ================= CABEÇALHO ================= -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a href="index.html" class="logo" aria-label="Instituto Raiz Comum — página inicial">
+          <img src="images/logo.svg" alt="" width="36" height="36">
+          Raiz Comum
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+
+        <nav class="main-nav" id="menu-principal" aria-label="Menu principal">
+          <ul class="nav-list">
+            <li><a class="nav-link" href="index.html">Início</a></li>
+            <li class="has-submenu">
+              <button class="nav-link" type="button" aria-expanded="false" aria-controls="sub-sobre">
+                Sobre nós <span class="nav-link__chevron" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu" id="sub-sobre">
+                <li><a href="index.html#missao">Missão e valores</a></li>
+                <li><a href="index.html#impacto">Nosso impacto</a></li>
+                <li><a href="index.html#depoimentos">Depoimentos</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <button class="nav-link" type="button" aria-expanded="false" aria-controls="sub-projetos">
+                Projetos <span class="nav-link__chevron" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu" id="sub-projetos">
+                <li><a href="projetos.html">Todos os projetos</a></li>
+                <li><a href="projetos.html#educacao">Educação</a></li>
+                <li><a href="projetos.html#meio-ambiente">Meio ambiente</a></li>
+                <li><a href="projetos.html#alimentacao">Alimentação</a></li>
+                <li><a href="projetos.html#saude">Saúde</a></li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="cadastro.html" aria-current="page">Seja voluntário</a></li>
+          </ul>
+          <a href="cadastro.html#doacao" class="btn btn--primary main-nav__cta">Doar agora</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <section class="page-hero" aria-labelledby="titulo-cadastro">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Você está em">
+            <ol role="list">
+              <li><a href="index.html">Início</a></li>
+              <li aria-current="page">Cadastro</li>
+            </ol>
+          </nav>
+          <h1 id="titulo-cadastro">Faça parte da raiz</h1>
+          <p class="lead">Cadastre-se como voluntário, doador ou os dois. Entraremos em contato em até 5 dias úteis.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container layout-form">
+          <!-- Coluna informativa -->
+          <aside class="flex-col gap-3">
+            <figure class="hero__media">
+              <img src="images/voluntarios.svg" alt="Ilustração de três voluntários lado a lado" width="800" height="500">
+            </figure>
+            <h2>Por que ser voluntário?</h2>
+            <ul class="flex-col gap-2" role="list">
+              <li class="flex gap-2 items-center"><span class="badge badge--ativo">✓</span> Certificado de horas voluntárias</li>
+              <li class="flex gap-2 items-center"><span class="badge badge--ativo">✓</span> Capacitação gratuita antes de começar</li>
+              <li class="flex gap-2 items-center"><span class="badge badge--ativo">✓</span> Horários flexíveis, inclusive aos fins de semana</li>
+            </ul>
+            <div class="alert alert--warning" role="note">
+              <span class="alert__icon" aria-hidden="true">!</span>
+              <div class="alert__content">
+                <strong class="alert__title">Menores de 18 anos</strong>
+                Precisam de autorização assinada pelo responsável.
+              </div>
+            </div>
+          </aside>
+
+          <!-- Formulário -->
+          <div class="form-card">
+            <form class="form" id="form-cadastro" novalidate>
+              <div class="alert alert--error" id="form-alert" role="alert" hidden>
+                <span class="alert__icon" aria-hidden="true">!</span>
+                <div class="alert__content">
+                  <strong class="alert__title"></strong>
+                  <span class="alert__text"></span>
+                </div>
+              </div>
+
+              <fieldset class="fieldset">
+                <legend>Dados pessoais</legend>
+                <div class="field">
+                  <label class="field__label" for="nome">Nome completo<span class="required" aria-hidden="true">*</span></label>
+                  <input class="input" type="text" id="nome" name="nome" autocomplete="name" required minlength="3" placeholder="Seu nome">
+                  <span class="field__error">Informe seu nome completo (mínimo 3 letras).</span>
+                </div>
+                <div class="form-row">
+                  <div class="field">
+                    <label class="field__label" for="email">E-mail<span class="required" aria-hidden="true">*</span></label>
+                    <input class="input" type="email" id="email" name="email" autocomplete="email" required placeholder="voce@email.com">
+                    <span class="field__error">Digite um e-mail válido.</span>
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="telefone">Telefone<span class="required" aria-hidden="true">*</span></label>
+                    <input class="input" type="tel" id="telefone" name="telefone" autocomplete="tel" required pattern="\(\d{2}\) \d{5}-\d{4}" placeholder="(11) 90000-0000">
+                    <span class="field__error">Use o formato (11) 90000-0000.</span>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="field">
+                    <label class="field__label" for="cpf">CPF<span class="required" aria-hidden="true">*</span></label>
+                    <input class="input" type="text" id="cpf" name="cpf" inputmode="numeric" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="000.000.000-00">
+                    <span class="field__error">CPF deve ter 11 dígitos.</span>
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="nascimento">Data de nascimento<span class="required" aria-hidden="true">*</span></label>
+                    <input class="input" type="date" id="nascimento" name="nascimento" required>
+                    <span class="field__error">Informe sua data de nascimento.</span>
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="fieldset">
+                <legend>Endereço</legend>
+                <div class="form-row form-row--3">
+                  <div class="field">
+                    <label class="field__label" for="endereco">Rua e número</label>
+                    <input class="input" type="text" id="endereco" name="endereco" autocomplete="street-address" placeholder="Rua das Flores, 100">
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="cep">CEP<span class="required" aria-hidden="true">*</span></label>
+                    <input class="input" type="text" id="cep" name="cep" inputmode="numeric" required pattern="\d{5}-\d{3}" placeholder="00000-000">
+                    <span class="field__error">CEP inválido.</span>
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="estado">Estado<span class="required" aria-hidden="true">*</span></label>
+                    <select class="select" id="estado" name="estado" required>
+                      <option value="">Selecione</option>
+                      <option>SP</option><option>RJ</option><option>MG</option><option>PR</option><option>Outro</option>
+                    </select>
+                    <span class="field__error">Escolha um estado.</span>
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="fieldset">
+                <legend>Como quer ajudar?</legend>
+                <div class="field">
+                  <span class="field__label" id="lbl-areas">Áreas de interesse</span>
+                  <div class="chip-group" role="group" aria-labelledby="lbl-areas">
+                    <label class="chip"><input type="checkbox" name="areas" value="educacao" checked><span>Educação</span></label>
+                    <label class="chip"><input type="checkbox" name="areas" value="meio-ambiente"><span>Meio ambiente</span></label>
+                    <label class="chip"><input type="checkbox" name="areas" value="alimentacao"><span>Alimentação</span></label>
+                    <label class="chip"><input type="checkbox" name="areas" value="saude"><span>Saúde</span></label>
+                    <label class="chip"><input type="checkbox" name="areas" value="cultura"><span>Cultura</span></label>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <span class="field__label" id="lbl-disp">Disponibilidade<span class="required" aria-hidden="true">*</span></span>
+                  <div class="flex flex-wrap gap-3" role="radiogroup" aria-labelledby="lbl-disp">
+                    <label class="choice"><input type="radio" name="disponibilidade" value="semana" required> Dias de semana</label>
+                    <label class="choice"><input type="radio" name="disponibilidade" value="fds"> Fins de semana</label>
+                    <label class="choice"><input type="radio" name="disponibilidade" value="ambos"> Ambos</label>
+                  </div>
+                  <span class="field__error">Escolha uma disponibilidade.</span>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="mensagem">Conte um pouco sobre você</label>
+                  <textarea class="textarea" id="mensagem" name="mensagem" maxlength="500" placeholder="Experiências, habilidades, motivação…"></textarea>
+                  <span class="field__hint">Opcional · até 500 caracteres</span>
+                </div>
+              </fieldset>
+
+              <fieldset class="fieldset" id="doacao">
+                <legend>Doação (opcional)</legend>
+                <div class="chip-group" role="radiogroup" aria-label="Valor da doação mensal">
+                  <label class="chip"><input type="radio" name="valor" value="0" checked><span>Só voluntariado</span></label>
+                  <label class="chip"><input type="radio" name="valor" value="30"><span>R$ 30/mês</span></label>
+                  <label class="chip"><input type="radio" name="valor" value="60"><span>R$ 60/mês</span></label>
+                  <label class="chip"><input type="radio" name="valor" value="120"><span>R$ 120/mês</span></label>
+                </div>
+              </fieldset>
+
+              <div class="field">
+                <label class="choice">
+                  <input type="checkbox" name="termos" required>
+                  <span>Li e aceito a política de privacidade e autorizo o contato do instituto.<span class="required" aria-hidden="true">*</span></span>
+                </label>
+                <span class="field__error">É preciso aceitar os termos para continuar.</span>
+              </div>
+
+              <div class="form__actions">
+                <button type="reset" class="btn btn--ghost" data-toast="Formulário limpo.">Limpar</button>
+                <button type="submit" class="btn btn--primary btn--lg">Enviar cadastro</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= RODAPÉ ================= -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="grid site-footer__grid">
+          <div class="col-12 col-lg-5">
+            <a href="index.html" class="logo"><img src="images/logo.svg" alt="" width="36" height="36"> Raiz Comum</a>
+            <p class="text-sm">Instituto Raiz Comum · CNPJ 00.000.000/0001-00<br>Rua das Sementes, 123 — São Paulo/SP</p>
+          </div>
+          <nav class="col-6 col-md-4 col-lg-2" aria-label="Institucional">
+            <h2>Instituto</h2>
+            <ul class="footer-links">
+              <li><a href="index.html#missao">Missão</a></li>
+              <li><a href="index.html#impacto">Impacto</a></li>
+              <li><a href="index.html#depoimentos">Depoimentos</a></li>
+            </ul>
+          </nav>
+          <nav class="col-6 col-md-4 col-lg-2" aria-label="Participe">
+            <h2>Participe</h2>
+            <ul class="footer-links">
+              <li><a href="projetos.html">Projetos</a></li>
+              <li><a href="cadastro.html">Voluntariado</a></li>
+              <li><a href="cadastro.html#doacao">Doações</a></li>
+            </ul>
+          </nav>
+          <div class="col-12 col-md-4 col-lg-3">
+            <h2>Contato</h2>
+            <ul class="footer-links">
+              <li><a href="mailto:contato@raizcomum.org">contato@raizcomum.org</a></li>
+              <li><a href="tel:+551140000000">(11) 4000-0000</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© <span data-year>2026</span> Instituto Raiz Comum. Todos os direitos reservados.</span>
+          <span>Projeto acadêmico — UNICSUL</span>
+        </div>
+      </div>
+      <div class="wordmark" aria-hidden="true">RAIZ COMUM</div>
+    </footer>
+  </div>
+
+  <!-- MODAL: sucesso -->
+  <dialog class="modal" id="modal-sucesso" aria-labelledby="titulo-sucesso">
+    <div class="modal__header">
+      <h2 id="titulo-sucesso">Cadastro enviado! 🌱</h2>
+      <button class="modal__close" type="button" data-modal-close aria-label="Fechar">&times;</button>
+    </div>
+    <div class="modal__body">
+      <div class="alert alert--success">
+        <span class="alert__icon" aria-hidden="true">✓</span>
+        <div class="alert__content">Recebemos seus dados com sucesso.</div>
+      </div>
+      <p>Nossa equipe vai entrar em contato por e-mail em até 5 dias úteis com os próximos passos.</p>
+    </div>
+    <div class="modal__footer">
+      <a class="btn btn--outline" href="projetos.html">Ver projetos</a>
+      <button class="btn btn--primary" type="button" data-modal-close>Fechar</button>
+    </div>
+  </dialog>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

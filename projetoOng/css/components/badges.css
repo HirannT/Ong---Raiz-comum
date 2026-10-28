@@ -1,0 +1,124 @@
+/* ==========================================================================
+   BADGES E TAGS — categorização de projetos e status
+   ========================================================================== */
+
+/* Badge: rótulo de status/categoria, não interativo */
+.badge {
+  --badge-bg: var(--color-neutral-900);
+  --badge-color: var(--color-white);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--badge-bg);
+  color: var(--badge-color);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+/* Categorias de projeto */
+.badge--educacao  { --badge-bg: var(--color-primary-500); }
+.badge--meio-ambiente { --badge-bg: var(--color-secondary-500); }
+.badge--saude     { --badge-bg: var(--color-info); }
+.badge--alimentacao { --badge-bg: var(--color-warning); --badge-color: var(--color-neutral-900); }
+.badge--cultura   { --badge-bg: var(--color-neutral-900); }
+
+/* Status */
+.badge--soft {
+  --badge-bg: var(--color-neutral-100);
+  --badge-color: var(--color-text);
+}
+
+.badge--status::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.badge--ativo     { --badge-bg: var(--color-secondary-100); --badge-color: var(--color-secondary-700); }
+.badge--urgente   { --badge-bg: #fbe9e8; --badge-color: var(--color-error); }
+.badge--concluido { --badge-bg: var(--color-neutral-100); --badge-color: var(--color-neutral-700); }
+.badge--novo      { --badge-bg: var(--color-primary-100); --badge-color: var(--color-primary-700); }
+
+/* Tag: palavra-chave, contorno, pode ser link/filtro */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  background: var(--color-white);
+  transition: all var(--transition-fast);
+}
+
+.tag::before { content: "#"; color: var(--color-neutral-500); }
+
+a.tag:hover,
+button.tag:hover {
+  border-color: var(--color-neutral-900);
+  color: var(--color-text);
+}
+
+/* Filtros (botões em pílula com estado ativo) */
+.filter-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  list-style: none;
+  padding: 0;
+}
+
+@media (min-width: 1024px) {
+  .layout-sidebar__aside .filter-list { flex-direction: column; }
+  .layout-sidebar__aside .filter {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.filter {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 40px;
+  padding: 0 var(--space-2);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  transition: all var(--transition-fast);
+}
+
+.filter:hover { border-color: var(--color-neutral-900); }
+
+.filter[aria-pressed="true"] {
+  background: var(--color-neutral-900);
+  border-color: var(--color-neutral-900);
+  color: var(--color-white);
+}
+
+.filter__count {
+  font-size: var(--fs-xs);
+  padding: 0 8px;
+  border-radius: var(--radius-pill);
+  background: var(--color-neutral-100);
+  color: var(--color-text-muted);
+}
+
+.filter[aria-pressed="true"] .filter__count {
+  background: rgb(255 255 255 / 0.15);
+  color: var(--color-white);
+}

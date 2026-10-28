@@ -1,0 +1,148 @@
+/* ==========================================================================
+   BOTÕES — variantes, tamanhos e estados (hover, focus, active, disabled)
+   ========================================================================== */
+
+.btn {
+  --btn-bg: var(--color-neutral-900);
+  --btn-color: var(--color-white);
+  --btn-border: var(--btn-bg);
+  --btn-bg-hover: #2b2b2b;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  min-height: 44px;           /* área de toque acessível */
+  padding: 0 var(--space-3);
+  border: 2px solid var(--btn-border);
+  border-radius: var(--radius-pill);
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+/* Hover */
+.btn:hover {
+  background: var(--btn-bg-hover);
+  border-color: var(--btn-bg-hover);
+}
+
+/* Focus (teclado) */
+.btn:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+/* Active (clique) */
+.btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Disabled */
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  background: var(--color-neutral-300);
+  border-color: var(--color-neutral-300);
+  color: var(--color-neutral-500);
+  cursor: not-allowed;
+  transform: none;
+  pointer-events: none;
+}
+
+/* ---------- Variantes ---------- */
+.btn--primary {
+  --btn-bg: var(--color-primary-500);
+  --btn-bg-hover: var(--color-primary-700);
+}
+
+.btn--secondary {
+  --btn-bg: var(--color-secondary-500);
+  --btn-bg-hover: var(--color-secondary-700);
+}
+
+.btn--outline {
+  --btn-bg: transparent;
+  --btn-color: var(--color-neutral-900);
+  --btn-border: var(--color-neutral-900);
+  --btn-bg-hover: var(--color-neutral-900);
+}
+.btn--outline:hover { color: var(--color-white); }
+
+.btn--outline-light {
+  --btn-bg: transparent;
+  --btn-color: var(--color-white);
+  --btn-border: var(--color-white);
+  --btn-bg-hover: rgb(255 255 255 / 0.15);
+}
+
+.btn--light {
+  --btn-bg: var(--color-white);
+  --btn-color: var(--color-neutral-900);
+  --btn-bg-hover: var(--color-neutral-100);
+}
+
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-color: var(--color-neutral-900);
+  --btn-border: transparent;
+  --btn-bg-hover: var(--color-surface);
+}
+
+.btn--danger {
+  --btn-bg: var(--color-error);
+  --btn-bg-hover: #9e2b25;
+}
+
+/* ---------- Tamanhos ---------- */
+.btn--sm { min-height: 36px; padding: 0 var(--space-2); font-size: var(--fs-xs); }
+.btn--lg { min-height: 56px; padding: 0 var(--space-4); font-size: var(--fs-base); }
+.btn--block { width: 100%; }
+
+/* Ícone de seta */
+.btn__arrow {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.2);
+  transition: transform var(--transition-fast);
+}
+.btn:hover .btn__arrow { transform: translateX(3px); }
+
+/* Estado de carregamento */
+.btn.is-loading {
+  color: transparent;
+  position: relative;
+  pointer-events: none;
+}
+.btn.is-loading::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--color-white);
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Grupo de botões */
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}

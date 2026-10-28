@@ -1,0 +1,27 @@
+/* ==========================================================================
+   MAIN.CSS — ponto de entrada único do CSS
+   A ordem importa: base → layout → componentes → utilitários
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Inter:wght@400;500;600&display=swap");
+
+/* 1. Base: design system, reset e tipografia */
+@import url("base/variables.css");
+@import url("base/reset.css");
+@import url("base/typography.css");
+
+/* 2. Layout: grid de 12 colunas, estrutura geral, cabeçalho e rodapé */
+@import url("layout/grid.css");
+@import url("layout/layout.css");
+@import url("layout/header.css");
+@import url("layout/footer.css");
+
+/* 3. Componentes de interface */
+@import url("components/buttons.css");
+@import url("components/cards.css");
+@import url("components/badges.css");
+@import url("components/forms.css");
+@import url("components/feedback.css");
+
+/* 4. Utilitários (por último, para poder sobrescrever) */
+@import url("utilities.css");

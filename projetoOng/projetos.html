@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conheça os projetos sociais do Instituto Raiz Comum e escolha onde apoiar.">
+  <title>Projetos | Instituto Raiz Comum</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="page">
+    <!-- ================= CABEÇALHO ================= -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a href="index.html" class="logo" aria-label="Instituto Raiz Comum — página inicial">
+          <img src="images/logo.svg" alt="" width="36" height="36">
+          Raiz Comum
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+
+        <nav class="main-nav" id="menu-principal" aria-label="Menu principal">
+          <ul class="nav-list">
+            <li><a class="nav-link" href="index.html">Início</a></li>
+            <li class="has-submenu">
+              <button class="nav-link" type="button" aria-expanded="false" aria-controls="sub-sobre">
+                Sobre nós <span class="nav-link__chevron" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu" id="sub-sobre">
+                <li><a href="index.html#missao">Missão e valores</a></li>
+                <li><a href="index.html#impacto">Nosso impacto</a></li>
+                <li><a href="index.html#depoimentos">Depoimentos</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <button class="nav-link is-active" type="button" aria-expanded="false" aria-controls="sub-projetos">
+                Projetos <span class="nav-link__chevron" aria-hidden="true"></span>
+              </button>
+              <ul class="submenu" id="sub-projetos">
+                <li><a href="projetos.html" aria-current="page">Todos os projetos</a></li>
+                <li><a href="projetos.html#educacao">Educação</a></li>
+                <li><a href="projetos.html#meio-ambiente">Meio ambiente</a></li>
+                <li><a href="projetos.html#alimentacao">Alimentação</a></li>
+                <li><a href="projetos.html#saude">Saúde</a></li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="cadastro.html">Seja voluntário</a></li>
+          </ul>
+          <a href="cadastro.html#doacao" class="btn btn--primary main-nav__cta">Doar agora</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <!-- Cabeçalho da página -->
+      <section class="page-hero" aria-labelledby="titulo-projetos">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Você está em">
+            <ol role="list">
+              <li><a href="index.html">Início</a></li>
+              <li aria-current="page">Projetos</li>
+            </ol>
+          </nav>
+          <h1 id="titulo-projetos">Nossos projetos</h1>
+          <p class="lead">Escolha uma causa, acompanhe a meta e apoie como voluntário ou doador.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container layout-sidebar">
+          <!-- Barra lateral: busca + filtros -->
+          <aside class="layout-sidebar__aside flex-col gap-3" aria-label="Filtrar projetos">
+            <div class="search">
+              <label for="busca-projetos" class="sr-only">Buscar projeto</label>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+              <input class="input" type="search" id="busca-projetos" placeholder="Buscar projeto…">
+            </div>
+
+            <div class="flex-col gap-1">
+              <h2 class="text-sm">Categorias</h2>
+              <ul class="filter-list" role="list">
+                <li><button class="filter" type="button" data-filter="todos" aria-pressed="true">Todos <span class="filter__count">6</span></button></li>
+                <li><button class="filter" type="button" data-filter="educacao" aria-pressed="false">Educação <span class="filter__count">1</span></button></li>
+                <li><button class="filter" type="button" data-filter="meio-ambiente" aria-pressed="false">Meio ambiente <span class="filter__count">2</span></button></li>
+                <li><button class="filter" type="button" data-filter="alimentacao" aria-pressed="false">Alimentação <span class="filter__count">1</span></button></li>
+                <li><button class="filter" type="button" data-filter="saude" aria-pressed="false">Saúde <span class="filter__count">1</span></button></li>
+                <li><button class="filter" type="button" data-filter="cultura" aria-pressed="false">Cultura <span class="filter__count">1</span></button></li>
+              </ul>
+            </div>
+
+            <div class="flex-col gap-1 hide-mobile">
+              <h2 class="text-sm">Tags populares</h2>
+              <div class="card__tags">
+                <span class="tag">criancas</span>
+                <span class="tag">sustentabilidade</span>
+                <span class="tag">comunidade</span>
+                <span class="tag">fimdesemana</span>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Lista de projetos -->
+          <div class="flex-col gap-3">
+            <div class="alert alert--info" role="note">
+              <span class="alert__icon" aria-hidden="true">i</span>
+              <div class="alert__content">
+                <strong class="alert__title">Prestação de contas</strong>
+                Os valores arrecadados são atualizados toda segunda-feira.
+              </div>
+              <button class="alert__close" type="button" aria-label="Fechar aviso">&times;</button>
+            </div>
+
+            <!-- Projeto em destaque: card horizontal -->
+            <article class="card card--horizontal" data-category="educacao">
+              <div class="card__media">
+                <img src="images/projeto-reforco.svg" alt="Ilustração de quadro-negro e estudantes" width="800" height="500">
+                <span class="badge badge--educacao">Educação</span>
+              </div>
+              <div class="card__body">
+                <span class="badge badge--status badge--ativo">Inscrições abertas</span>
+                <h2 class="card__title">Reforço Escolar Raiz</h2>
+                <p class="card__text">Aulas de português e matemática aos sábados para 120 alunos do ensino fundamental, com acompanhamento das famílias.</p>
+                <div class="card__tags"><span class="tag">criancas</span><span class="tag">fimdesemana</span></div>
+                <div class="progress">
+                  <div class="progress__bar" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="Meta de arrecadação"><div class="progress__fill" style="width:72%"></div></div>
+                  <div class="progress__info"><span><strong>R$ 21.600</strong> de R$ 30.000</span><span>72%</span></div>
+                </div>
+                <div class="btn-group">
+                  <a href="cadastro.html" class="btn btn--primary">Quero ajudar</a>
+                  <button type="button" class="btn btn--outline" data-modal-open="modal-projeto">Saiba mais</button>
+                </div>
+              </div>
+            </article>
+
+            <div class="grid-auto">
+              <article class="card" data-category="meio-ambiente">
+                <div class="card__media">
+                  <img src="images/projeto-horta.svg" alt="Ilustração de horta com mudas" loading="lazy" width="800" height="500">
+                  <span class="badge badge--meio-ambiente">Meio ambiente</span>
+                </div>
+                <div class="card__body">
+                  <span class="badge badge--status badge--novo">Novo</span>
+                  <h2 class="card__title">Hortas Comunitárias</h2>
+                  <p class="card__text">Terrenos vazios viram hortas que abastecem 40 famílias.</p>
+                  <div class="card__tags"><span class="tag">sustentabilidade</span></div>
+                  <div class="progress">
+                    <div class="progress__bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" aria-label="Meta de arrecadação"><div class="progress__fill" style="width:45%"></div></div>
+                    <div class="progress__info"><span><strong>R$ 9.000</strong> de R$ 20.000</span><span>45%</span></div>
+                  </div>
+                </div>
+                <div class="card__footer">
+                  <span class="text-muted">18 voluntários</span>
+                  <a href="cadastro.html" class="btn btn--sm btn--primary">Apoiar</a>
+                </div>
+              </article>
+
+              <article class="card" data-category="alimentacao">
+                <div class="card__media">
+                  <img src="images/projeto-alimentos.svg" alt="Ilustração de cesta de alimentos" loading="lazy" width="800" height="500">
+                  <span class="badge badge--alimentacao">Alimentação</span>
+                </div>
+                <div class="card__body">
+                  <span class="badge badge--status badge--urgente">Urgente</span>
+                  <h2 class="card__title">Cesta Solidária</h2>
+                  <p class="card__text">Cestas básicas mensais para famílias em vulnerabilidade.</p>
+                  <div class="card__tags"><span class="tag">comunidade</span></div>
+                  <div class="progress">
+                    <div class="progress__bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="Meta de arrecadação"><div class="progress__fill" style="width:88%"></div></div>
+                    <div class="progress__info"><span><strong>R$ 35.200</strong> de R$ 40.000</span><span>88%</span></div>
+                  </div>
+                </div>
+                <div class="card__footer">
+                  <span class="text-muted">52 voluntários</span>
+                  <a href="cadastro.html#doacao" class="btn btn--sm btn--primary">Doar</a>
+                </div>
+              </article>
+
+              <article class="card" data-category="saude">
+                <div class="card__media">
+                  <img src="images/projeto-saude.svg" alt="Ilustração de cruz de saúde" loading="lazy" width="800" height="500">
+                  <span class="badge badge--saude">Saúde</span>
+                </div>
+                <div class="card__body">
+                  <span class="badge badge--status badge--ativo">Ativo</span>
+                  <h2 class="card__title">Saúde no Bairro</h2>
+                  <p class="card__text">Mutirões mensais de aferição de pressão e orientação em saúde.</p>
+                  <div class="card__tags"><span class="tag">comunidade</span></div>
+                  <div class="progress">
+                    <div class="progress__bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" aria-label="Meta de arrecadação"><div class="progress__fill" style="width:30%"></div></div>
+                    <div class="progress__info"><span><strong>R$ 4.500</strong> de R$ 15.000</span><span>30%</span></div>
+                  </div>
+                </div>
+                <div class="card__footer">
+                  <span class="text-muted">9 voluntários</span>
+                  <a href="cadastro.html" class="btn btn--sm btn--primary">Apoiar</a>
+                </div>
+              </article>
+
+              <article class="card" data-category="cultura">
+                <div class="card__media">
+                  <img src="images/projeto-cultura.svg" alt="Ilustração de disco e notas musicais" loading="lazy" width="800" height="500">
+                  <span class="badge badge--cultura">Cultura</span>
+                </div>
+                <div class="card__body">
+                  <span class="badge badge--status badge--ativo">Ativo</span>
+                  <h2 class="card__title">Som da Quebrada</h2>
+                  <p class="card__text">Oficinas gratuitas de música e produção para jovens de 14 a 21 anos.</p>
+                  <div class="card__tags"><span class="tag">jovens</span></div>
+                  <div class="progress">
+                    <div class="progress__bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="Meta de arrecadação"><div class="progress__fill" style="width:60%"></div></div>
+                    <div class="progress__info"><span><strong>R$ 7.200</strong> de R$ 12.000</span><span>60%</span></div>
+                  </div>
+                </div>
+                <div class="card__footer">
+                  <span class="text-muted">14 voluntários</span>
+                  <a href="cadastro.html" class="btn btn--sm btn--primary">Apoiar</a>
+                </div>
+              </article>
+
+              <article class="card" data-category="meio-ambiente">
+                <div class="card__media">
+                  <img src="images/projeto-reflorestamento.svg" alt="Ilustração de árvores em colina" loading="lazy" width="800" height="500">
+                  <span class="badge badge--meio-ambiente">Meio ambiente</span>
+                </div>
+                <div class="card__body">
+                  <span class="badge badge--status badge--concluido">Concluído</span>
+                  <h2 class="card__title">Mata Viva</h2>
+                  <p class="card__text">2.000 mudas nativas plantadas às margens do córrego local.</p>
+                  <div class="card__tags"><span class="tag">sustentabilidade</span></div>
+                  <div class="progress">
+                    <div class="progress__bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="Meta de arrecadação"><div class="progress__fill" style="width:100%"></div></div>
+                    <div class="progress__info"><span><strong>R$ 18.000</strong> de R$ 18.000</span><span>100%</span></div>
+                  </div>
+                </div>
+                <div class="card__footer">
+                  <span class="text-muted">Meta atingida</span>
+                  <button type="button" class="btn btn--sm" disabled>Encerrado</button>
+                </div>
+              </article>
+            </div>
+
+            <div class="alert alert--warning" id="sem-resultados" role="status" hidden>
+              <span class="alert__icon" aria-hidden="true">!</span>
+              <div class="alert__content">
+                <strong class="alert__title">Nenhum projeto encontrado</strong>
+                Tente outra palavra ou selecione "Todos".
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= RODAPÉ ================= -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="grid site-footer__grid">
+          <div class="col-12 col-lg-5">
+            <a href="index.html" class="logo"><img src="images/logo.svg" alt="" width="36" height="36"> Raiz Comum</a>
+            <p class="text-sm">Instituto Raiz Comum · CNPJ 00.000.000/0001-00<br>Rua das Sementes, 123 — São Paulo/SP</p>
+          </div>
+          <nav class="col-6 col-md-4 col-lg-2" aria-label="Institucional">
+            <h2>Instituto</h2>
+            <ul class="footer-links">
+              <li><a href="index.html#missao">Missão</a></li>
+              <li><a href="index.html#impacto">Impacto</a></li>
+              <li><a href="index.html#depoimentos">Depoimentos</a></li>
+            </ul>
+          </nav>
+          <nav class="col-6 col-md-4 col-lg-2" aria-label="Participe">
+            <h2>Participe</h2>
+            <ul class="footer-links">
+              <li><a href="projetos.html">Projetos</a></li>
+              <li><a href="cadastro.html">Voluntariado</a></li>
+              <li><a href="cadastro.html#doacao">Doações</a></li>
+            </ul>
+          </nav>
+          <div class="col-12 col-md-4 col-lg-3">
+            <h2>Contato</h2>
+            <ul class="footer-links">
+              <li><a href="mailto:contato@raizcomum.org">contato@raizcomum.org</a></li>
+              <li><a href="tel:+551140000000">(11) 4000-0000</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© <span data-year>2026</span> Instituto Raiz Comum. Todos os direitos reservados.</span>
+          <span>Projeto acadêmico — UNICSUL</span>
+        </div>
+      </div>
+      <div class="wordmark" aria-hidden="true">RAIZ COMUM</div>
+    </footer>
+  </div>
+
+  <!-- MODAL: detalhes do projeto -->
+  <dialog class="modal" id="modal-projeto" aria-labelledby="titulo-modal-projeto">
+    <div class="modal__header">
+      <h2 id="titulo-modal-projeto">Reforço Escolar Raiz</h2>
+      <button class="modal__close" type="button" data-modal-close aria-label="Fechar">&times;</button>
+    </div>
+    <div class="modal__body">
+      <div class="card__tags"><span class="badge badge--educacao">Educação</span><span class="badge badge--status badge--ativo">Inscrições abertas</span></div>
+      <p>Encontros aos sábados, das 9h às 12h, na sede do instituto. Precisamos de voluntários com ensino médio completo para apoiar turmas de até 12 alunos.</p>
+      <p><strong>Compromisso:</strong> 2 sábados por mês, por no mínimo 6 meses.</p>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn--ghost" type="button" data-modal-close>Fechar</button>
+      <a class="btn btn--primary" href="cadastro.html">Quero participar</a>
+    </div>
+  </dialog>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

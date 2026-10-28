@@ -1,0 +1,202 @@
+/* ==========================================================================
+   CARDS — sistema responsivo para projetos, depoimentos e destaques
+   ========================================================================== */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
+}
+
+.card__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+
+.card:hover .card__media img { transform: scale(1.04); }
+
+/* Badge posicionado sobre a imagem */
+.card__media .badge {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+  padding: var(--space-3);
+}
+
+.card__title {
+  font-size: var(--fs-xl);
+}
+
+.card__title a {
+  text-decoration: none;
+}
+
+/* Torna o card inteiro clicável mantendo semântica */
+.card__title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.card--link { position: relative; }
+
+.card__text {
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+}
+
+.card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding: var(--space-2) var(--space-3);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--fs-sm);
+}
+
+/* Barra de progresso de arrecadação */
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.progress__bar {
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--color-neutral-100);
+  overflow: hidden;
+}
+
+.progress__fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-primary-500);
+}
+
+.progress__info {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+
+.progress__info strong { color: var(--color-text); }
+
+/* ---------- Variante horizontal (≥ 768px) ---------- */
+@media (min-width: 768px) {
+  .card--horizontal {
+    flex-direction: row;
+  }
+  .card--horizontal .card__media {
+    flex: 0 0 42%;
+    aspect-ratio: auto;
+  }
+}
+
+/* ---------- Variante destaque (fundo laranja) ---------- */
+.card--featured {
+  background: var(--color-primary-500);
+  border-color: var(--color-primary-500);
+  color: var(--color-white);
+}
+.card--featured .card__text { color: rgb(255 255 255 / 0.85); }
+
+/* ---------- Card escuro (seções escuras) ---------- */
+.card--dark {
+  background: #1e1e1e;
+  border-color: #2b2b2b;
+  color: var(--color-white);
+}
+.card--dark .card__text { color: var(--color-neutral-300); }
+
+/* ---------- Card de valor/ícone ---------- */
+.card--icon .card__body { padding: var(--space-4) var(--space-3); }
+
+.card__icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-100);
+  color: var(--color-primary-700);
+}
+
+.card__icon svg { width: 28px; height: 28px; }
+
+.card__icon--green {
+  background: var(--color-secondary-100);
+  color: var(--color-secondary-700);
+}
+
+/* ---------- Depoimento ---------- */
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+}
+
+.testimonial blockquote {
+  font-size: var(--fs-lg);
+  line-height: var(--lh-snug);
+}
+
+.testimonial figcaption {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-sm);
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-secondary-100);
+  color: var(--color-secondary-700);
+  font-weight: var(--fw-bold);
+}
+
+/* Badge de status dentro do corpo do card não estica */
+.card__body > .badge { align-self: flex-start; }

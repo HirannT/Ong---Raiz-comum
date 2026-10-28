@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+<rect width="800" height="600" fill="#fdeee4"/>
+<circle cx="620" cy="140" r="80" fill="#e8631a"/>
+<path d="M0 430 Q200 360 400 420 T800 400 V600 H0z" fill="#e3f2ea"/>
+<path d="M0 480 Q250 430 500 480 T800 470 V600 H0z" fill="#2f8a5f"/>
+<g transform="translate(130 300) scale(1.2)">
+<rect x="-8" y="0" width="16" height="70" fill="#7a4a2a"/>
+<circle cx="0" cy="-20" r="50" fill="#2f8a5f"/><circle cx="-30" cy="5" r="30" fill="#2f8a5f"/><circle cx="30" cy="5" r="30" fill="#2f8a5f"/></g><g transform="translate(700 330) scale(0.9)">
+<rect x="-8" y="0" width="16" height="70" fill="#7a4a2a"/>
+<circle cx="0" cy="-20" r="50" fill="#1f5c3f"/><circle cx="-30" cy="5" r="30" fill="#1f5c3f"/><circle cx="30" cy="5" r="30" fill="#1f5c3f"/></g>
+<g transform="translate(330 300) scale(1.1)">
+<rect x="-34" y="40" width="68" height="110" rx="34" fill="#e8631a"/>
+<circle cx="0" cy="0" r="30" fill="#c98b62"/>
+<path d="M-30 -4c0-24 14-34 30-34s30 10 30 34c-10-12-50-12-60 0z" fill="#141414"/></g><g transform="translate(470 320) scale(1.0)">
+<rect x="-34" y="40" width="68" height="110" rx="34" fill="#141414"/>
+<circle cx="0" cy="0" r="30" fill="#8d5a3b"/>
+<path d="M-30 -4c0-24 14-34 30-34s30 10 30 34c-10-12-50-12-60 0z" fill="#141414"/></g><g transform="translate(570 360) scale(0.8)">
+<rect x="-34" y="40" width="68" height="110" rx="34" fill="#2f8a5f"/>
+<circle cx="0" cy="0" r="30" fill="#e0a77f"/>
+<path d="M-30 -4c0-24 14-34 30-34s30 10 30 34c-10-12-50-12-60 0z" fill="#141414"/></g>
+<path d="M400 470 v-40 M400 440 c-14-4-20-16-20-26 14 2 20 12 20 26z M400 440 c14-4 20-16 20-26-14 2-20 12-20 26z" stroke="#1f5c3f" stroke-width="5" fill="#2f8a5f"/>
+</svg>
